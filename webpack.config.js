@@ -3,16 +3,17 @@ const webpack = require('webpack');
 module.exports = {
 	entry: [
 		'react-hot-loader/patch',
-	 	'./src/index.js'
+		'./src/index.jsx'
 	],
 	module: {
-		rules: [
-			{
-				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				use: ['babel-loader']
+		rules: [{
+			test: /\.(js|jsx)$/,
+			loader: 'babel-loader',
+			exclude: /node_modules/,
+			query: {
+				presets: ['es2015', 'react']
 			}
-		]
+		}]
 	},
 	resolve: {
 		extensions: ['*', '.js', '.jsx']
@@ -23,10 +24,10 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	plugins: [
-    	new webpack.HotModuleReplacementPlugin()
-  	],
+		new webpack.HotModuleReplacementPlugin()
+	],
 	devServer: {
-	  	contentBase: './dist',
-	  	hot: true
+		contentBase: './dist',
+		hot: true
 	}
 };
