@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const title = 'My Minimal React Webpack Babel Setup';
+import { creatStore } from 'redux'
+
+
+function reducer() {
+  return 'state'
+}
+
+cont store = createStore(reducer)
+
+console.log(store.getStore())
+
+const title = '';
 
 ReactDOM.render(
   <div>{title}</div>,
   document.getElementById('app')
 );
 
-// npm react-hot-loader using plugin webpack.HotModuleReplacementPlugin()
 module.hot.accept();
